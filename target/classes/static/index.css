@@ -17,4 +17,10 @@ body{
     padding: 20px;
     text-decoration: none;
     color: black;
+
+}
+
+.navbar hover{
+    color: blue;
+    background-color: aqua;
 }
