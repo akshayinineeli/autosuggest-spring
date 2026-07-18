@@ -1,5 +1,6 @@
 body{
     margin: 0px;
+    background-color: rgb(223, 217, 217);
 }
 
 /* h1{
@@ -11,6 +12,8 @@ body{
      border-color: gray;
      padding: 20px;
      text-align: center;
+     background-color: white;
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .navbar a{
@@ -22,6 +25,39 @@ body{
 }
 
 .navbar a:hover{
-    color: blue;
-    background-color: aqua;
+    color: blanchedalmond;
+    background-color: grey;
+}
+
+.card{
+    border: 1px solid black;
+    width: 350px;
+    border-radius: 30px;
+    text-align : center;
+    color: rgb(157, 157, 236);
+    margin-top: 70px;
+    overflow:hidden;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 20px;
+    background-color: white;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.card img{
+    /* width: 300px; */
+    width: 100%;
+}
+
+.card button{
+    padding: 10px;
+    width: 80%;
+    border-radius: 8px;
+    border-style: none;
+    color: rgb(105, 96, 136);
+    font-size: 15px;
+}
+
+.card h3{
+    color: rgb(146, 86, 155);
 }
