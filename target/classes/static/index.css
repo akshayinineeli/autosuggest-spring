@@ -21,7 +21,7 @@ body{
 
 }
 
-.navbar hover{
+.navbar a:hover{
     color: blue;
     background-color: aqua;
 }
