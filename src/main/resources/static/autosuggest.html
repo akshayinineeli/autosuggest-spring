@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: white;
+            padding: 200px;
+            text-align: center;
+            font-size: 30px;   
+        }
+        /* input{
+            width: 400px;
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid black;
+            padding-left: 10px;
+            font-size: 10px;
+        } */
+        .gear{
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            
+        }
+        .pill{
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            
+        }
+        .title-first{
+            color:rgb(121, 94, 226)
+        }
+
+        .title{
+            font-size: 90px;
+        }
+        
+        .tagline{
+            color: grey;
+        }
+
+        .search{
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 30px;
+            width: 80%;
+            height: 30px;
+            border-radius: 10px;
+            border: 1px solid black;
+            font-size: 16px;
+
+        }
+        .lens{
+            position: relative;
+            left: 45px;
+        }
+
+        .search-suggestions {
+            width: 80%;
+            margin: 8px 0 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            text-align: left;
+            margin: 0px auto;
+        }
+        .suggestion {
+            padding: 10px 14px;
+            border-bottom: 1px solid #f2f2f2;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <span class="gear">&#x2699;</span>
+    <span class="pill">&#x2022; online | &#x1F553; - ms </span>
+    <h1 class="title"> <span class="title-first">Being</span>Infinity</h1>
+    <p class="tagline">One million phrases.Four algorithms.Prefix Based Auto Suggest</p>
+    <span class="lens">&#x1F50D;</span>
+    <input class="search" oninput="getSearchSuggestions()" type="text" placeholder="Start typing to search phrases..">
+     <div class="search-suggestions">
+        <!-- <div class="suggestion"> Cyber security </div>
+        <div class="suggestion"> Data Science </div> -->
+    </div>
+<script>
+    function getSearchSuggestions() {
+        var searchBox= document.getElementsByClassName("search");
+        var searchSuggestions= document.getElementsByClassName("search-suggestions");
+
+        var userInput= searchBox.value;
+        if(userInput.trim() === "") return;
+        var URL= "https://autosuggest-backend.onrender.com/api/autosuggest?q=" + userInput + "&algorithm=brute&limit=10&weighted=false";
+        fetch(URL)
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data){
+            var searchResults= "";
+            var suggestions= data.results;
+            for(var i=0; i<suggestions.length; i++){
+                searchResults += "<div class='suggestion'>" + suggestions[i].text + "</div>";
+            }
+            searchSuggestions.innerHTML= searchResults;
+
+
+        })
+        
+
+    }
+</script>
+</body>
+</html>
